@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boss Ounce Experience 2026</title>
+    <link rel="icon" type="image/png" href="public/logo.png" />
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -293,8 +294,8 @@
                             <div>
                                 <h3 class="font-bold text-boss-black uppercase tracking-wide text-sm mb-1">Palestras de
                                     Impacto</h3>
-                                <p class="text-sm text-gray-500">Conteúdo prático sobre gestão, vendas high-ticket e
-                                    branding pessoal.</p>
+                                <p class="text-sm text-gray-500">Estratégias exclusivas para alavancar seu negócio,
+                                    fidelizar clientes e dominar o mercado da beleza.</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
@@ -434,6 +435,21 @@
                                 <p class="text-boss-goldLight text-sm font-semibold">ou 2x de R$ 156,32</p>
                             </div>
 
+                            <!-- URGENCY SECTION -->
+                            <div
+                                class="mb-6 bg-red-900/20 border border-boss-red/30 rounded py-2 px-4 inline-block backdrop-blur-sm">
+                                <div
+                                    class="flex items-center justify-center gap-2 text-boss-red text-xs font-bold uppercase tracking-wider mb-1">
+                                    <i data-lucide="alert-triangle" class="w-3 h-3"></i> Virada de Lote
+                                </div>
+                                <div id="lotTimer" class="text-white font-sans text-xl font-bold tracking-widest">
+                                    00d 00h 00m 00s
+                                </div>
+                                <p class="text-[10px] text-gray-400 mt-1">Próximo valor: <span
+                                        class="line-through opacity-50">R$ 297</span> <span
+                                        class="text-white font-bold">R$ 367,00</span></p>
+                            </div>
+
                             <div class="h-px w-full bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-8">
                             </div>
 
@@ -468,8 +484,8 @@
                                 </li>
                             </ul>
 
-                            <a href="https://pay.kiwify.com.br/kqBeE9d" target="_blank"
-                                class="block w-full btn-gold text-boss-black font-bold py-4 rounded shadow-lg uppercase tracking-widest text-sm hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] transition-all transform hover:-translate-y-1 relative z-10 no-underline">
+                            <a id="checkoutBtn" href="https://pay.kiwify.com.br/kqBeE9d" target="_blank"
+                                class="block w-full btn-gold text-boss-black font-bold py-4 rounded shadow-lg uppercase tracking-widest text-sm hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] transition-all transform hover:-translate-y-1 relative z-10 no-underline text-center">
                                 Garantir Minha Vaga
                             </a>
                         </div>
@@ -898,6 +914,38 @@
         setInterval(updateCountdown, 60000);
         updateCountdown();
 
+        // --- LOT TIMER (Virada de Lote) ---
+        // Target: 17/02/2026 23:59:00
+        const lotTargetDate = new Date('February 17, 2026 23:59:59').getTime();
+
+        function updateLotTimer() {
+            const now = new Date().getTime();
+            const distance = lotTargetDate - now;
+
+            if (distance < 0) {
+                document.getElementById("lotTimer").innerText = "EXPIRADO";
+                // Change link when timer expires
+                const checkoutBtn = document.getElementById("checkoutBtn");
+                if (checkoutBtn) {
+                    checkoutBtn.href = "https://pay.kiwify.com.br/istY1f8";
+                }
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Format: 00d 00h 00m 00s
+            document.getElementById("lotTimer").innerText =
+                `${days < 10 ? '0' + days : days}d ${hours < 10 ? '0' + hours : hours}h ${minutes < 10 ? '0' + minutes : minutes}m ${seconds < 10 ? '0' + seconds : seconds}s`;
+        }
+
+        // Update every second for the lot timer
+        setInterval(updateLotTimer, 1000);
+        updateLotTimer();
+
         // --- AUTOMATED MARQUEE LOGIC ---
         // Lists populated from user data
 
@@ -937,68 +985,71 @@
         // NOTE: To add a specific photo, add the property: photo: "URL_DA_FOTO"
         const rawSpeakers = [
             // Palco
-            { name: "Bya Lucena", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/uLMYbql.png" },
-            { name: "Jaqueline Braz", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/j2b2Z1v.png" },
-            { name: "Lara Aguiar", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/Knx2T8h.png" },
-            { name: "Sara Kastanho", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/V1ehsKG.png" },
-            { name: "Raquel Medeiros", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/Eb4woM6.png" },
-            { name: "Nayara Santos", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/iNlXBij.png" },
-            { name: "Vitoria Lorena", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/3pBwvdv.png" },
-            { name: "Lays Araujo", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/CDVae0F.png" },
-            { name: "Paulo Mendes", role: "Palestrante | Palco", type: "m", photo: "https://imgur.com/ht1LhJ4.png" },
-            { name: "Júlia Pereira", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/w75NAmk.png" },
-            { name: "Larissa Sousa", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/ZcQSizY.png" },
-            { name: "Mirella Nascimento", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/glBnslE.png" },
-            { name: "Taciana Borges", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/63VO7zx.png" },
-            { name: "Flávia Elita", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/C7sBKKV.png" },
-            { name: "Gabrielle Landim", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/UXPjnWp.png" },
-            { name: "Rapha Poppet", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/Z7nDRiK.png" },
-            { name: "Matheus Carvalho", role: "Palestrante | Palco", type: "m", photo: "https://imgur.com/VxqkEBC.png" },
+            { name: "Bya Lucena", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/uLMYbql.png", instagram: "@byalucenas" },
+            { name: "Jaqueline Braz", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/j2b2Z1v.png", instagram: "@jaquelinebraz_beauty" },
+            { name: "Lara Aguiar", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/Knx2T8h.png", instagram: "@laraaguiarnails" },
+            { name: "Sara Kastanho", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/V1ehsKG.png", instagram: "@sarakastanho" },
+            { name: "Raquel Medeiros", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/Eb4woM6.png", instagram: "@raquelmedeirosstudio" },
+            { name: "Nayara Santos", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/iNlXBij.png", instagram: "@naycriart.nails" },
+            { name: "Vitoria Lorena", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/3pBwvdv.png", instagram: "@vitoriabeaut_" },
+            { name: "Lays Araujo", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/g99SQDQ.png", instagram: "@laysaraujonails" },
+            { name: "Paulo Mendes", role: "Palestrante | Palco", type: "m", photo: "https://imgur.com/wS5NJkU.png", instagram: "@paulomendesbrows" },
+            { name: "Júlia Pereira", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/w75NAmk.png", instagram: "@juliapereira_nail" },
+            { name: "Larissa Sousa", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/ZcQSizY.png", instagram: "@larissasouusa_" },
+            { name: "Mirella Nascimento", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/glBnslE.png", instagram: "@mirellanascimento1" },
+            { name: "Taciana Borges", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/63VO7zx.png", instagram: "@tacianaborges_" },
+            { name: "Flávia Elita", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/b4nAbdg.png", instagram: "@flaviaelitaoficial" },
+            { name: "Gabrielle Landim", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/UXPjnWp.png", instagram: "@landim.lash" },
+            { name: "Rapha Poppet", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/Z7nDRiK.png", instagram: "@raphapoppetnails" },
+            { name: "Matheus Carvalho", role: "Palestrante | Palco", type: "m", photo: "https://imgur.com/VxqkEBC.png", instagram: "@eusoucarvalhodesigner" },
+            { name: "Júlia Contabelle", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/xkMY5Bl.png", instagram: "@juliamcontadora" },
 
             // Workboss (Duplicates merged or relisted as requested? Listing all as they appear guarantees visibility)
-            { name: "Maria Castro", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/b8SeLzT.png" },
-            { name: "Aline Oliveira", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/4at4Zvo.png" },
-            { name: "Emisleia Alves", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/FkDYlQy.png" },
-            { name: "Camila Andrade", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/qt5prfi.png" },
-            { name: "Angélica Brito", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/IiIaH9x.png" },
-            { name: "Aline Gomes", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/JRmPNiL.png" },
-            { name: "Heloísa Aguiar", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/sUkLMUc.png" },
-            { name: "Kauany Araújo", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/RiPmUlT.png" },
-            { name: "Taisa", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/bT9jHxI.png" },
-            { name: "Rogerio Hudson", role: "Workboss | Técnica", type: "m", photo: "https://imgur.com/ht1LhJ4.png" },
-            { name: "Dayane Matos", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/LqkIld0.png" },
-            { name: "Deborah Cristiny", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/t5xF68O.png" },
-            { name: "Ana Paula", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/UtNfewq.png" },
-            { name: "Casal Nails", role: "Workboss | Técnica", type: "b", photo: "https://imgur.com/CX3TjAK.png" },
-            { name: "Milena Vargas", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/7kbOIoS.png" },
-            { name: "Gilvan", role: "Workboss | Técnica", type: "m", photo: "https://imgur.com/FPTfCIC.png" },
+            { name: "Maria Castro", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/b8SeLzT.png", instagram: "@mariacastro_naildesigner" },
+            { name: "Aline Oliveira", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/4at4Zvo.png", instagram: "@alineonails_" },
+            { name: "Emisleia Alves", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/FkDYlQy.png", instagram: "@emisleiaalves" },
+            { name: "Camila Andrade", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/qt5prfi.png", instagram: "@camilaandradehair" },
+            { name: "Angélica Brito", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/G0VZntE.png", instagram: "@angelicabritobrazilian" },
+            { name: "Aline Gomes", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/JRmPNiL.png", instagram: "@alinegomes.academy" },
+            { name: "Heloísa Aguiar", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/sUkLMUc.png", instagram: "@heloisasobrancelhaspmu" },
+            { name: "Kauany Araújo", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/RiPmUlT.png", instagram: "@kauanyaraujobrows" },
+            { name: "Taisa", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/bT9jHxI.png", instagram: "@taisafdesign_" },
+            { name: "Rogerio Hudson", role: "Workboss | Técnica", type: "m", photo: "https://imgur.com/Z5DIVH0.png", instagram: "@rogerio_h" },
+            { name: "Dayane Matos", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/GyCoaZy.png", instagram: "@dayanematoslashes" },
+            { name: "Deborah Cristiny", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/t5xF68O.png", instagram: "@deborah_cristinny" },
+            { name: "Ana Paula", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/UnPy1wh.png", instagram: "@analima.lashdesigner" },
+            { name: "Casal Nails", role: "Workboss | Técnica", type: "b", photo: "https://imgur.com/CX3TjAK.png", instagram: "@casalnailstudio" },
+            { name: "Milena Vargas", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/7kbOIoS.png", instagram: "@milenavargaspmu" },
+            { name: "Gilvan", role: "Workboss | Técnica", type: "m", photo: "https://imgur.com/FPTfCIC.png", instagram: "@adelewabraids" },
+            { name: "Vivi", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/SKUDOTg.png", instagram: "@vivignails" },
 
             // Talkshow
-            { name: "Nay Cunha", role: "Talkshow", type: "f", photo: "https://imgur.com/xi6gd7L.png" },
-            { name: "Sandra Rosa", role: "Talkshow", type: "f", photo: "https://imgur.com/Tu6etDW.png" },
-            { name: "Denice", role: "Talkshow", type: "f", photo: "https://imgur.com/8fvYzq2.png" },
-            { name: "Maria Yvelônia", role: "Talkshow", type: "f", photo: "https://imgur.com/lBshbNY.png" },
-            { name: "Naelly", role: "Talkshow", type: "f", photo: "https://imgur.com/XeLBtMG.png" },
-            { name: "Bruna", role: "Talkshow", type: "f", photo: "https://imgur.com/22XZtzQ.png" },
-            { name: "Ray Oliveira", role: "Talkshow", type: "f", photo: "https://imgur.com/ht1LhJ4.png" },
-            { name: "Pathy Lopez", role: "Talkshow", type: "f", photo: "https://imgur.com/gdLVoXM.png" },
+            { name: "Nay Cunha", role: "Talkshow", type: "f", photo: "https://imgur.com/yL9jt1v.png", instagram: "@naycunhabeauty" },
+            { name: "Sandra Rosa", role: "Talkshow", type: "f", photo: "https://imgur.com/Tu6etDW.png", instagram: "@sandrarosadf" },
+            { name: "Denice", role: "Talkshow", type: "f", photo: "https://imgur.com/8fvYzq2.png", instagram: "@denice_nasci" },
+            { name: "Maria Yvelônia", role: "Talkshow", type: "f", photo: "https://imgur.com/lBshbNY.png", instagram: "@mariayvelonia" },
+            { name: "Naelly", role: "Talkshow", type: "f", photo: "https://imgur.com/HSJmWQb.png", instagram: "@naelyk.instrutoranails" },
+            { name: "Bruna Martins", role: "Talkshow", type: "f", photo: "https://imgur.com/22XZtzQ.png", instagram: "@brunamartinsnailsdf" },
+            { name: "Ray Oliveira", role: "Talkshow", type: "f", photo: "https://imgur.com/69m9yW3.png", instagram: "@rayoliveirabeauty" },
+            { name: "Pathy Lopez", role: "Talkshow", type: "f", photo: "https://imgur.com/gdLVoXM.png", instagram: "@pathylopezzzcursos" },
 
             // Stands
-            { name: "MG Cilios e Brows", role: "Expositor", type: "b", photo: "https://imgur.com/ht1LhJ4.png" },
-            { name: "Imperio Nails", role: "Expositor", type: "b", photo: "https://imgur.com/kmdOu8V.png" },
-            { name: "Danilo Tatto", role: "Expositor", type: "m", photo: "https://imgur.com/iK2dfuT.png" },
-            { name: "Gih Delicias", role: "Expositor", type: "b", photo: "https://imgur.com/j8ElehD.png" },
-            { name: "GK Moda Feminina", role: "Expositor", type: "b", photo: "https://imgur.com/xIKnYSJ.png" },
-            { name: "Escorsin Store", role: "Expositor", type: "b", photo: "https://imgur.com/ht1LhJ4.png" },
-            { name: "Lucenarte", role: "Expositor", type: "b", photo: "https://imgur.com/z5wfq0P.png" },
+            { name: "MG Cilios e Brows", role: "Expositor", type: "b", photo: "https://imgur.com/5foqAmF.png", instagram: "@lojadeciliosmg" },
+            { name: "Imperio Nails", role: "Expositor", type: "b", photo: "https://imgur.com/kmdOu8V.png", instagram: "@imperionails_in" },
+            { name: "Danilo Tatto", role: "Expositor", type: "m", photo: "https://imgur.com/iK2dfuT.png", instagram: "@lowtatto_" },
+            { name: "Gih Delicias", role: "Expositor", type: "b", photo: "https://imgur.com/FjMaJ1C.png", instagram: "@gihdelicias" },
+            { name: "GK Moda Feminina", role: "Expositor", type: "b", photo: "https://imgur.com/rwAizQD.png", instagram: "@gkmodafeminina" },
+            { name: "Escorsin Store", role: "Expositor", type: "b", photo: "https://imgur.com/HzlmQmw.png", instagram: "@escorsinstore" },
+            { name: "Lucenarte", role: "Expositor", type: "b", photo: "https://imgur.com/FdODN2N.png", instagram: "@lucenarte" },
 
             // Parceiros VIP
-            { name: "Beautify BR", role: "Parceiro VIP", type: "b", photo: "https://imgur.com/5qVznZo.png" },
-            { name: "Elevare", role: "Parceiro VIP", type: "b", photo: "https://imgur.com/EQru1OH.png" },
-            { name: "Menela", role: "Parceiro VIP", type: "b", photo: "https://imgur.com/ht1LhJ4.png" },
-            { name: "La Benig", role: "Parceiro VIP", type: "b", photo: "https://imgur.com/KhBd528.png" },
-            { name: "Dermink", role: "Parceiro VIP", type: "b", photo: "https://imgur.com/ht1LhJ4.png" },
-            { name: "Bylee", role: "Parceiro VIP", type: "b", photo: "https://imgur.com/isMc58g.png" }
+            { name: "Beautify BR", role: "Parceiro VIP", type: "b", photo: "https://imgur.com/jemV6AY.png", instagram: "@beautifybr" },
+            { name: "Elevare", role: "Parceiro VIP", type: "b", photo: "https://imgur.com/EQru1OH.png", instagram: "@elevare" },
+            { name: "Menela", role: "Parceiro VIP", type: "b", photo: "https://imgur.com/V0snHs6.png", instagram: "@menela" },
+            { name: "La Benig", role: "Parceiro VIP", type: "b", photo: "https://imgur.com/KhBd528.png", instagram: "@labening" },
+            { name: "Dermink", role: "Parceiro VIP", type: "b", photo: "https://imgur.com/7MEW955.png", instagram: "@dermink" },
+            { name: "Bylee", role: "Parceiro VIP", type: "b", photo: "https://imgur.com/isMc58g.png", instagram: "@bylee.app" },
+            { name: "You Talents", role: "Parceiro VIP", type: "b", photo: "https://imgur.com/TuKAG3L.png", instagram: "@youtalentspmu" }
         ];
 
         // Process images
@@ -1035,16 +1086,22 @@
         shuffleArray(baseList);
 
         function createCard(speaker, index) {
+            const instagramLink = speaker.instagram
+                ? `<a href="https://instagram.com/${speaker.instagram.replace('@', '')}" target="_blank" class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0 z-20 hover:scale-110 transform transition-transform">
+                     <div class="w-8 h-8 bg-boss-gold text-black rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(212,175,55,0.5)]">
+                         <i data-lucide="instagram" class="w-4 h-4"></i>
+                     </div>
+                   </a>`
+                : '';
+
             return `
                 <div class="w-[280px] md:w-[320px] shrink-0 group relative bg-boss-gray border border-white/5 rounded-sm overflow-hidden hover:border-boss-gold/50 transition-colors duration-300">
                     <div class="aspect-[4/5] overflow-hidden relative">
                         <img src="${speaker.img}" alt="${speaker.name}" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-boss-black via-transparent to-transparent opacity-80"></div>
-                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
-                            <div class="w-8 h-8 bg-boss-gold text-black rounded-full flex items-center justify-center">
-                                <i data-lucide="instagram" class="w-4 h-4"></i>
-                            </div>
-                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-boss-black via-transparent to-transparent opacity-80 pointer-events-none"></div>
+                        
+                        ${instagramLink}
+                        
                     </div>
                     <div class="p-6 relative">
                         <h3 class="text-xl font-serif font-bold text-white mb-1 group-hover:text-boss-gold transition-colors">${speaker.name}</h3>
