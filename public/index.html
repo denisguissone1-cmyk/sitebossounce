@@ -207,22 +207,44 @@
 
         <!-- Mobile Menu Overlay -->
         <div id="mobileMenu"
-            class="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 md:hidden flex items-center justify-center">
-            <button class="absolute top-6 right-6 text-white" onclick="toggleMobileMenu()">
-                <i data-lucide="x" class="w-8 h-8"></i>
+            class="fixed inset-0 z-[60] bg-boss-black transform translate-x-full transition-transform duration-500 md:hidden flex flex-col items-center justify-center overflow-hidden">
+
+            <!-- Background Effects -->
+            <div
+                class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-boss-red/10 to-boss-gold/10"></div>
+
+            <!-- Circular Glows -->
+            <div class="absolute -top-20 -right-20 w-80 h-80 bg-boss-red blur-[100px] opacity-20"></div>
+            <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-boss-gold blur-[100px] opacity-20"></div>
+
+            <button class="absolute top-6 right-6 text-white hover:text-boss-gold transition-colors z-50"
+                onclick="toggleMobileMenu()">
+                <i data-lucide="x" class="w-10 h-10"></i>
             </button>
-            <div class="flex flex-col items-center gap-8 text-center">
+
+            <div class="flex flex-col items-center gap-8 text-center relative z-10 w-full px-6">
+                <!-- Logo inside menu -->
+                <img src="https://i.imgur.com/CSGaG1S.png" alt="Boss Ounce"
+                    class="w-16 h-16 object-contain mb-4 animate-pulse">
+
                 <a href="#evento" onclick="toggleMobileMenu()"
-                    class="text-2xl font-serif text-white hover:text-boss-gold transition-colors">O Evento</a>
+                    class="text-3xl font-serif font-bold text-white hover:text-boss-gold transition-all hover:scale-110">O
+                    Evento</a>
                 <a href="#palestrantes" onclick="toggleMobileMenu()"
-                    class="text-2xl font-serif text-white hover:text-boss-gold transition-colors">Palestrantes</a>
+                    class="text-3xl font-serif font-bold text-white hover:text-boss-gold transition-all hover:scale-110">Palestrantes</a>
                 <a href="#dresscode" onclick="toggleMobileMenu()"
-                    class="text-2xl font-serif text-white hover:text-boss-gold transition-colors">Dress Code</a>
+                    class="text-3xl font-serif font-bold text-white hover:text-boss-gold transition-all hover:scale-110">Dress
+                    Code</a>
                 <a href="#faq" onclick="toggleMobileMenu()"
-                    class="text-2xl font-serif text-white hover:text-boss-gold transition-colors">FAQ</a>
+                    class="text-3xl font-serif font-bold text-white hover:text-boss-gold transition-all hover:scale-110">FAQ</a>
+
+                <div class="h-px w-20 bg-boss-gold/30 my-2"></div>
+
                 <a href="#checkout" onclick="toggleMobileMenu()"
-                    class="btn-gold px-10 py-4 text-boss-black font-bold rounded-sm uppercase tracking-widest text-sm">
-                    Ingressos
+                    class="btn-gold w-full max-w-xs py-4 text-boss-black font-bold rounded-sm uppercase tracking-[0.2em] text-sm shadow-[0_0_20px_rgba(212,175,55,0.4)]">
+                    Garantir Ingresso
                 </a>
             </div>
         </div>
