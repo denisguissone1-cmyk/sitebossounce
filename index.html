@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boss Ounce Experience 2026</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        boss: {
+                            red: '#C40000',
+                            darkRed: '#8a0000',
+                            gold: '#D4AF37', // Gold base
+                            goldLight: '#F3E5AB', // Highlight
+                            goldDark: '#aa771c', // Shadow
+                            white: '#FFFFFF',
+                            black: '#0a0a0a', // Deeper black
+                            gray: '#1a1a1a'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(10, 10, 10, 0.85), rgba(196, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')",
+                        'gold-gradient': 'linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%)',
+                    },
+                    animation: {
+                        'shimmer': 'shimmer 2.5s infinite linear',
+                        'float': 'float 6s ease-in-out infinite',
+                        'scroll': 'scroll 180s linear infinite', // Aumentei o tempo para 180s devido a quantidade de nomes
+                    },
+                    keyframes: {
+                        shimmer: {
+                            '0%': { backgroundPosition: '-1000px 0' },
+                            '100%': { backgroundPosition: '1000px 0' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        scroll: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' }, // Move metade (o tamanho do conjunto original)
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Efeito de Texto Metálico Premium */
+        .text-gold-metallic {
+            background: linear-gradient(to bottom right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Bordas Douradas */
+        .border-gold-metallic {
+            border: 1px solid transparent;
+            background: linear-gradient(to right, #111, #111) padding-box,
+                linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c) border-box;
+        }
+
+        /* Botão Dourado com Efeito de Brilho */
+        .btn-gold {
+            background: linear-gradient(90deg, #aa771c 0%, #D4AF37 50%, #aa771c 100%);
+            background-size: 200% auto;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-gold:hover {
+            background-position: right center;
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Efeito de Vidro */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Fade In Animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.5, 0, 0, 1), transform 1s cubic-bezier(0.5, 0, 0, 1);
+            will-change: opacity, transform;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Accordion Styles */
+        details>summary {
+            list-style: none;
+        }
+
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* Pause Animation on Hover */
+        .hover-pause:hover {
+            animation-play-state: paused;
+        }
+
+        .text-shadow-lg {
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-boss-white font-sans text-boss-black overflow-x-hidden selection:bg-boss-gold selection:text-boss-black">
+
+    <!-- Navbar -->
+    <nav
+        class="fixed w-full z-50 transition-all duration-300 bg-black/90 backdrop-blur-md border-b border-boss-gold/20 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <!-- LOGO CORRIGIDA -->
+                <img src="https://i.imgur.com/CSGaG1S.png" alt="Boss Ounce Logo"
+                    class="w-12 h-12 object-contain rounded-full border border-boss-gold/30 bg-boss-black">
+                <div class="flex flex-col">
+                    <span class="text-white font-serif font-bold text-lg tracking-widest leading-none">BOSS OUNCE</span>
+                    <span class="text-boss-gold text-[0.6rem] uppercase tracking-[0.3em] leading-none">Experience</span>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#evento"
+                    class="text-sm uppercase tracking-widest text-gray-300 hover:text-boss-gold transition-colors">O
+                    Evento</a>
+                <a href="#palestrantes"
+                    class="text-sm uppercase tracking-widest text-gray-300 hover:text-boss-gold transition-colors">Palestrantes</a>
+                <a href="#dresscode"
+                    class="text-sm uppercase tracking-widest text-gray-300 hover:text-boss-gold transition-colors">Dress
+                    Code</a>
+                <a href="#faq"
+                    class="text-sm uppercase tracking-widest text-gray-300 hover:text-boss-gold transition-colors">FAQ</a>
+                <a href="#checkout"
+                    class="px-6 py-2 border border-boss-gold/50 text-boss-gold hover:bg-boss-gold hover:text-black hover:border-boss-gold transition-all duration-300 uppercase text-xs font-bold tracking-widest">
+                    Ingressos
+                </a>
+            </div>
+            <!-- Mobile Menu Icon -->
+            <button class="md:hidden text-white">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+        class="relative min-h-screen flex items-center justify-center text-center px-4 bg-hero-pattern bg-cover bg-center bg-fixed bg-no-repeat overflow-hidden">
+        <!-- Overlay Particles -->
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-boss-black via-transparent to-transparent opacity-90"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto fade-in-section is-visible pt-20 flex flex-col items-center">
+            <!-- LOGO CORRIGIDA (Hero Section) -->
+            <div class="mb-8 flex justify-center animate-float">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-boss-gold blur-[30px] opacity-20 rounded-full"></div>
+                    <img src="https://i.imgur.com/CSGaG1S.png" alt="Logo Boss Ounce"
+                        class="relative w-24 h-24 object-contain drop-shadow-[0_0_15px_rgba(212,175,55,0.5)]">
+                </div>
+            </div>
+
+            <!-- Alteração: Data e Local com quebra e bolinha no mobile -->
+            <h2
+                class="text-boss-gold font-sans font-bold tracking-[0.3em] text-xs md:text-sm mb-6 uppercase border-b border-boss-gold/30 inline-block pb-2">
+                <span class="block md:inline">08 e 09 de Março de 2026</span>
+                <span class="hidden md:inline"> &bull; </span>
+                <span class="block md:inline mt-2 md:mt-0 flex items-center justify-center gap-2">
+                    <span
+                        class="md:hidden text-boss-gold text-[8px] align-middle rounded-full bg-boss-gold w-1.5 h-1.5 inline-block"></span>
+                    Brasília - DF
+                </span>
+            </h2>
+
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-[1.1] mb-8">
+                TRANSFORME SEU <br>
+                <span class="text-gold-metallic">PROPÓSITO EM PODER</span>
+            </h1>
+
+            <p class="text-gray-300 text-lg md:text-xl mb-10 font-light max-w-2xl mx-auto leading-relaxed">
+                A imersão definitiva para profissionais que desejam dominar o mercado da estética com autoridade,
+                elegância e estratégia.
+            </p>
+
+            <!-- Countdown Timer Mockup -->
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8 mb-12">
+                <div class="flex flex-col items-center">
+                    <span class="text-3xl md:text-4xl font-serif text-white font-bold" id="days">402</span>
+                    <span class="text-[0.6rem] uppercase tracking-widest text-boss-gold">Dias</span>
+                </div>
+                <div class="text-2xl text-boss-gold/30 font-serif">:</div>
+                <div class="flex flex-col items-center">
+                    <span class="text-3xl md:text-4xl font-serif text-white font-bold" id="hours">14</span>
+                    <span class="text-[0.6rem] uppercase tracking-widest text-boss-gold">Horas</span>
+                </div>
+                <div class="text-2xl text-boss-gold/30 font-serif">:</div>
+                <div class="flex flex-col items-center">
+                    <span class="text-3xl md:text-4xl font-serif text-white font-bold" id="minutes">25</span>
+                    <span class="text-[0.6rem] uppercase tracking-widest text-boss-gold">Min</span>
+                </div>
+            </div>
+
+            <!-- Botões Hero Centralizados -->
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center w-full">
+                <a href="#checkout"
+                    class="btn-gold text-boss-black font-bold py-5 px-16 rounded-sm uppercase tracking-[0.15em] text-sm shadow-[0_0_30px_rgba(212,175,55,0.3)] w-full md:w-auto hover:scale-105 transform transition-transform text-center">
+                    Garantir Vaga VIP
+                </a>
+                <a href="#evento"
+                    class="text-white hover:text-boss-gold transition-colors uppercase tracking-widest text-xs font-bold border-b border-white/20 hover:border-boss-gold pb-1 mt-2 md:mt-0">
+                    Ver programação
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <div
+            class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
+            <a href="#evento"><i data-lucide="chevron-down" class="text-white w-8 h-8"></i></a>
+        </div>
+    </section>
+
+    <!-- O Evento Section -->
+    <section id="evento" class="py-24 bg-white fade-in-section relative">
+        <div
+            class="absolute top-0 right-0 w-1/3 h-full bg-gray-50 skew-x-12 transform origin-top-right -z-0 hidden lg:block">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Text Content -->
+                <div class="order-2 lg:order-1">
+                    <div class="flex items-center gap-4 mb-6">
+                        <span class="h-px w-12 bg-boss-red"></span>
+                        <h4 class="text-boss-red font-bold uppercase tracking-widest text-xs">Experience</h4>
+                    </div>
+                    <h2
+                        class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-boss-black mb-8 leading-tight">
+                        O Palco das <br>
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-boss-red to-boss-darkRed">Maiores
+                            Autoridades</span>
+                    </h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed text-lg font-light">
+                        Esqueça tudo o que você sabe sobre eventos de estética. O Boss Ounce Experience não é sobre
+                        palestras teóricas, é sobre <strong>estratégias de guerra</strong> para dominar o seu nicho.
+                        Networking intencional, técnica apurada e mentalidade de crescimento.
+                    </p>
+
+                    <div class="space-y-6 mb-10">
+                        <div class="flex gap-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-boss-gold/10 flex items-center justify-center shrink-0">
+                                <i data-lucide="mic-2" class="text-boss-gold w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-boss-black uppercase tracking-wide text-sm mb-1">Palestras de
+                                    Impacto</h3>
+                                <p class="text-sm text-gray-500">Conteúdo prático sobre gestão, vendas high-ticket e
+                                    branding pessoal.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-boss-gold/10 flex items-center justify-center shrink-0">
+                                <i data-lucide="scan-face" class="text-boss-gold w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-boss-black uppercase tracking-wide text-sm mb-1">Live Demo
+                                </h3>
+                                <p class="text-sm text-gray-500">Demonstrações de procedimentos ao vivo com transmissão
+                                    em 4K no telão.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#palestrantes"
+                        class="group inline-flex items-center gap-2 text-boss-red font-bold uppercase text-sm tracking-widest hover:gap-4 transition-all duration-300">
+                        Ver Lista de Palestrantes
+                        <i data-lucide="arrow-right" class="w-5 h-5 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Speakers Image (User Uploaded) -->
+                <div class="order-1 lg:order-2 relative group perspective-1000">
+                    <!-- Decorative Frame -->
+                    <div
+                        class="absolute inset-0 border-2 border-boss-gold transform translate-x-4 translate-y-4 rounded-sm transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2">
+                    </div>
+
+                    <div class="relative rounded-sm overflow-hidden shadow-2xl">
+                        <!-- Imagem do usuário com fallback para Unsplash -->
+                        <img src="image_ee2b0a.jpg"
+                            onerror="this.onerror=null; this.src='https://imgur.com/ht1LhJ4.png'"
+                            alt="Palestrantes Boss Ounce Experience"
+                            class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 filter saturate-0 group-hover:saturate-100">
+                        <!-- Overlay Gradient -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-boss-black/80 to-transparent opacity-100 group-hover:opacity-60 transition-opacity duration-500">
+                        </div>
+
+                        <div class="absolute bottom-0 left-0 p-8 w-full">
+                            <p class="text-boss-gold font-serif italic text-xl mb-1">Line-up 2026</p>
+                            <p
+                                class="text-white font-bold uppercase tracking-widest text-sm border-t border-boss-gold/50 pt-4 inline-block">
+                                Confirmados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speakers Carousel Section (Automatic Marquee) -->
+    <section id="palestrantes"
+        class="py-24 bg-boss-black text-white fade-in-section border-t border-white/5 overflow-hidden">
+        <div class="container mx-auto px-6 mb-12">
+            <div class="flex flex-col justify-center items-center text-center">
+                <span class="text-boss-gold font-bold uppercase tracking-[0.2em] text-xs mb-3 block">Line-up
+                    Oficial</span>
+                <h2 class="text-3xl md:text-5xl font-serif font-bold mb-4">Nossos Especialistas</h2>
+                <p class="text-gray-500 max-w-2xl">Reunimos a elite do mercado em um único lugar. Conheça quem vai
+                    transformar sua carreira.</p>
+            </div>
+        </div>
+
+        <!-- Marquee Track Wrapper -->
+        <div class="relative w-full overflow-hidden">
+            <!-- Gradients to fade edges -->
+            <div class="absolute top-0 left-0 z-10 h-full w-24 bg-gradient-to-r from-boss-black to-transparent"></div>
+            <div class="absolute top-0 right-0 z-10 h-full w-24 bg-gradient-to-l from-boss-black to-transparent"></div>
+
+            <!-- Scrolling Track (Dynamically populated by JS) -->
+            <div id="marqueeTrack" class="flex gap-6 animate-scroll hover-pause w-max pl-6">
+                <!-- Content injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Passaporte / Checkout Section -->
+    <section id="checkout"
+        class="py-24 bg-boss-gray text-white relative overflow-hidden fade-in-section lg:min-h-screen lg:flex lg:items-center">
+        <!-- Background Elements -->
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10">
+        </div>
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-boss-red rounded-full filter blur-[150px] opacity-20"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-boss-gold rounded-full filter blur-[150px] opacity-10">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 w-full">
+            <div class="text-center mb-16 max-w-3xl mx-auto">
+                <span class="text-boss-gold font-bold uppercase tracking-[0.2em] text-xs mb-4 block">Investimento</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Garanta Seu Lugar na Elite</h2>
+                <p class="text-gray-400">As vagas são estritamente limitadas para garantir a qualidade do networking. O
+                    segundo lote encerra em breve.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+
+                <!-- Ticket VIP (UNIQUE AND EXCLUSIVE EMPHASIS) -->
+                <div class="relative transform md:scale-105 lg:scale-110 z-20 order-1 w-full max-w-md mx-auto">
+                    <!-- Intense Glow effect -->
+                    <div
+                        class="absolute -inset-0.5 bg-gradient-to-r from-boss-gold via-white to-boss-gold rounded-lg blur opacity-50 animate-pulse">
+                    </div>
+                    <div
+                        class="bg-boss-black border-2 border-boss-gold rounded-lg shadow-[0_0_50px_rgba(212,175,55,0.3)] overflow-hidden relative h-full flex flex-col">
+                        <!-- Exclusive Badge -->
+                        <div
+                            class="bg-gradient-to-r from-boss-gold via-yellow-200 to-boss-gold p-2 text-center shadow-lg">
+                            <p
+                                class="text-boss-black text-xs font-bold uppercase tracking-[0.3em] flex items-center justify-center gap-2">
+                                <i data-lucide="crown" class="w-4 h-4"></i> Acesso Exclusivo
+                            </p>
+                        </div>
+                        <div class="p-8 text-center flex-grow flex flex-col justify-center relative">
+                            <!-- Background Texture inside Card -->
+                            <div
+                                class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10 pointer-events-none">
+                            </div>
+
+                            <h3 class="text-3xl font-serif font-bold text-white mb-2">Passaporte GOLD</h3>
+                            <p
+                                class="text-boss-gold text-xs uppercase tracking-widest mb-6 border-b border-white/10 pb-4 mx-8">
+                                A Experiência Completa</p>
+
+                            <div class="flex justify-center items-baseline gap-1 mb-1">
+                                <span class="text-sm text-gray-400">R$</span>
+                                <span class="text-7xl font-bold text-white tracking-tighter text-shadow-lg">297</span>
+                                <span class="text-xl text-gray-400">,00</span>
+                            </div>
+
+                            <!-- Updated Installment Info -->
+                            <div
+                                class="bg-white/5 rounded-full py-1 px-4 mx-auto mb-8 inline-block border border-white/10">
+                                <p class="text-boss-goldLight text-sm font-semibold">ou 2x de R$ 156,32</p>
+                            </div>
+
+                            <div class="h-px w-full bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-8">
+                            </div>
+
+                            <ul class="space-y-4 text-left mb-8 px-4 relative z-10">
+                                <li class="flex items-center gap-3 text-sm text-gray-200">
+                                    <div
+                                        class="w-5 h-5 rounded-full bg-boss-gold flex items-center justify-center text-black shadow-md">
+                                        <i data-lucide="check" class="w-3 h-3"></i>
+                                    </div>
+                                    <span class="font-medium">Acesso aos 2 Dias de Imersão</span>
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-200">
+                                    <div
+                                        class="w-5 h-5 rounded-full bg-boss-gold flex items-center justify-center text-black shadow-md">
+                                        <i data-lucide="check" class="w-3 h-3"></i>
+                                    </div>
+                                    <span class="font-medium">Kit Congressista Premium</span>
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-200">
+                                    <div
+                                        class="w-5 h-5 rounded-full bg-boss-gold flex items-center justify-center text-black shadow-md">
+                                        <i data-lucide="check" class="w-3 h-3"></i>
+                                    </div>
+                                    <span class="font-medium">Sorteio da Mala de Produtos</span>
+                                </li>
+                                <li class="flex items-center gap-3 text-sm text-gray-200">
+                                    <div
+                                        class="w-5 h-5 rounded-full bg-boss-gold flex items-center justify-center text-black shadow-md">
+                                        <i data-lucide="check" class="w-3 h-3"></i>
+                                    </div>
+                                    <span class="font-medium">Certificado Impresso e Digital</span>
+                                </li>
+                            </ul>
+
+                            <a href="https://pay.kiwify.com.br/kqBeE9d" target="_blank"
+                                class="block w-full btn-gold text-boss-black font-bold py-4 rounded shadow-lg uppercase tracking-widest text-sm hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] transition-all transform hover:-translate-y-1 relative z-10 no-underline">
+                                Garantir Minha Vaga
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ticket Exclusive / Add-on (Secondary) -->
+                <div
+                    class="relative z-10 p-8 border border-white/5 rounded bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors h-auto flex flex-col justify-center order-2 opacity-80 hover:opacity-100">
+                    <div class="text-center md:text-left mb-6">
+                        <div
+                            class="inline-block px-2 py-1 border border-gray-600 rounded text-[10px] text-gray-400 uppercase tracking-widest mb-2">
+                            Opcional</div>
+                        <h3 class="text-xl font-serif text-white mb-2">Campeonato</h3>
+                        <p class="text-sm text-gray-400">Competição You Talents</p>
+                    </div>
+
+                    <ul class="space-y-4 mb-8 text-gray-400">
+                        <li class="flex items-center gap-3 text-sm"><i data-lucide="check"
+                                class="w-4 h-4 text-boss-gold"></i> Participação no Palco</li>
+                        <li class="flex items-center gap-3 text-sm"><i data-lucide="check"
+                                class="w-4 h-4 text-boss-gold"></i> Avaliação de Jurados</li>
+                        <li class="flex items-center gap-3 text-sm"><i data-lucide="check"
+                                class="w-4 h-4 text-boss-gold"></i> Troféu Destaque</li>
+                        <li class="flex items-center gap-3 text-sm"><i data-lucide="check"
+                                class="w-4 h-4 text-boss-gold"></i> Networking com Juízes</li>
+                    </ul>
+                    <!-- Modified Buttons Container -->
+                    <div class="mt-auto flex gap-3">
+                        <a href="https://wa.me/5561974037379?text=Ol%C3%A1%2C%20gostaria%20de%20me%20inscrever%20no%20Campeonato%20Boss%20Ounce%20Experience!"
+                            target="_blank"
+                            class="flex-grow py-3 border border-boss-gold text-boss-gold text-xs font-bold uppercase tracking-widest hover:bg-boss-gold hover:text-black transition-colors text-center flex items-center justify-center">
+                            Inscrever-se
+                        </a>
+                        <button onclick="toggleModal('championshipModal')"
+                            class="w-12 py-3 border border-boss-gold text-boss-gold hover:bg-boss-gold hover:text-black transition-colors flex items-center justify-center group"
+                            title="Ver Categorias">
+                            <i data-lucide="info" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Dress Code Section -->
+    <section id="dresscode" class="py-24 bg-boss-red text-white fade-in-section relative overflow-hidden">
+        <!-- Abstract Shapes -->
+        <div class="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="w-full h-full">
+                <path d="M0 100 L100 0 L100 100 Z" fill="black" />
+            </svg>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/3 text-left">
+                    <h2 class="text-5xl md:text-7xl font-serif italic mb-4">Dress Code</h2>
+                    <div class="h-1 w-20 bg-white mb-6"></div>
+                    <p class="text-xl uppercase tracking-widest mb-8 font-sans font-bold">Vermelho &<br>All White</p>
+                    <p class="opacity-90 leading-relaxed mb-8 font-light">
+                        A estética do evento foi milimetricamente pensada. Ao vestir o dress code, você não apenas
+                        participa, você compõe o cenário de luxo e autoridade.
+                    </p>
+
+                    <div class="flex flex-col gap-4">
+                        <div
+                            class="flex items-center gap-4 p-4 bg-black/20 backdrop-blur rounded border border-white/10">
+                            <div class="w-8 h-8 rounded-full bg-boss-red border-2 border-white shadow-lg"></div>
+                            <div>
+                                <span class="font-bold block uppercase text-xs tracking-widest">Vermelho Power</span>
+                                <span class="text-xs opacity-70">Autoridade e Paixão</span>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-4 p-4 bg-white/10 backdrop-blur rounded border border-white/10">
+                            <div class="w-8 h-8 rounded-full bg-white shadow-lg"></div>
+                            <div>
+                                <span class="font-bold block uppercase text-xs tracking-widest">All White</span>
+                                <span class="text-xs opacity-70">Sofisticação e Clareza</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-2/3 w-full relative">
+                    <!-- IMAGEM DO USUÁRIO -->
+                    <div
+                        class="relative rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-white/20 overflow-hidden group">
+                        <img src="image_ee2b28.jpg"
+                            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80'"
+                            alt="Dress Code Inspiração"
+                            class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-1000">
+
+                        <!-- Hover Info -->
+                        <div
+                            class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <p class="text-boss-gold font-serif italic text-2xl">Inspire-se</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-white fade-in-section">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-serif font-bold text-boss-black mb-2">Dúvidas Frequentes</h2>
+                <div class="h-0.5 w-10 bg-boss-gold mx-auto"></div>
+            </div>
+
+            <div class="space-y-4">
+                <details
+                    class="group bg-gray-50 p-6 rounded cursor-pointer border-l-4 border-transparent hover:border-boss-gold transition-all">
+                    <summary class="flex justify-between items-center font-bold text-gray-800">
+                        Onde será o evento?
+                        <span class="text-boss-gold group-open:rotate-180 transition-transform"><i
+                                data-lucide="chevron-down"></i></span>
+                    </summary>
+                    <div class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        <p class="font-bold text-boss-black mb-1">Instituto Federal de Brasília - Campus Gama</p>
+                        <p>Rodovia DF 480 Lote 1 - Pte. Alta Norte (Gama), Brasília - DF, 72429-005, Brasil.</p>
+                    </div>
+                </details>
+
+                <details
+                    class="group bg-gray-50 p-6 rounded cursor-pointer border-l-4 border-transparent hover:border-boss-gold transition-all">
+                    <summary class="flex justify-between items-center font-bold text-gray-800">
+                        O ingresso inclui alimentação?
+                        <span class="text-boss-gold group-open:rotate-180 transition-transform"><i
+                                data-lucide="chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        Teremos coffee break exclusivo em dois períodos do dia para networking. O almoço é livre para
+                        que você possa escolher entre as opções gastronômicas da região ou do próprio local.
+                    </p>
+                </details>
+
+                <details
+                    class="group bg-gray-50 p-6 rounded cursor-pointer border-l-4 border-transparent hover:border-boss-gold transition-all">
+                    <summary class="flex justify-between items-center font-bold text-gray-800">
+                        Posso parcelar o ingresso?
+                        <span class="text-boss-gold group-open:rotate-180 transition-transform"><i
+                                data-lucide="chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        Sim! O valor pode ser parcelado em até 2x no cartão de crédito. Aceitamos também PIX à vista com
+                        confirmação imediata.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-boss-black border-t border-boss-gold/20 pt-16 pb-8 text-center md:text-left">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-12">
+                <div class="max-w-xs mx-auto md:mx-0">
+                    <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
+                        <!-- LOGO CORRIGIDA -->
+                        <img src="https://i.imgur.com/CSGaG1S.png" alt="Boss Ounce Logo"
+                            class="w-10 h-10 object-contain">
+                        <span class="text-white font-serif font-bold text-2xl">BOSS OUNCE</span>
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        O maior encontro de estética e empreendedorismo do Brasil. Conectando propósitos, gerando
+                        resultados.
+                    </p>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-12 mx-auto md:mx-0">
+                    <div>
+                        <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-4">Contato & Localização
+                        </h4>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="map-pin" class="w-4 h-4 text-boss-gold mt-1 shrink-0"></i>
+                                <span>
+                                    <strong class="text-white block">IFB - Campus Gama</strong>
+                                    Rodovia DF 480 Lote 1 - Pte. Alta Norte (Gama), Brasília - DF, 72429-005
+                                </span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="mail" class="w-4 h-4 text-boss-gold shrink-0"></i>
+                                bossounceevento@gmail.com
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="phone" class="w-4 h-4 text-boss-gold shrink-0"></i>
+                                (61) 97403-7379
+                            </li>
+                            <li class="flex gap-4 mt-2 justify-center md:justify-start">
+                                <a href="https://www.instagram.com/bossounceexperienceoficial/" target="_blank"
+                                    class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-boss-gold hover:text-black transition-all"><i
+                                        data-lucide="instagram" class="w-4 h-4"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600">
+                <p>&copy; 2026 Boss Ounce Experience. Todos os direitos reservados.</p>
+                <p class="flex items-center gap-1">Desenvolvido com <i data-lucide="heart"
+                        class="w-3 h-3 text-boss-red fill-boss-red"></i> para a Elite da Estética</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante Mobile -->
+    <div id="floating-cta"
+        class="fixed bottom-0 w-full p-4 bg-white/10 backdrop-blur-md border-t border-white/20 md:hidden transform translate-y-full transition-transform duration-300 z-50">
+        <a href="#checkout"
+            class="block w-full btn-gold text-boss-black font-bold py-3 text-center rounded uppercase tracking-widest shadow-lg">
+            Garantir Ingresso
+        </a>
+    </div>
+
+    <!-- MODAL: Championship Categories -->
+    <div id="championshipModal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog"
+        aria-modal="true">
+        <!-- Backdrop with blur -->
+        <div class="fixed inset-0 bg-black/90 backdrop-blur-sm transition-opacity"
+            onclick="toggleModal('championshipModal')"></div>
+
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+
+                <!-- Modal Panel -->
+                <div
+                    class="relative transform overflow-hidden rounded-lg bg-boss-gray border border-boss-gold text-left shadow-[0_0_50px_rgba(212,175,55,0.2)] transition-all sm:my-8 sm:w-full sm:max-w-lg">
+
+                    <!-- Header -->
+                    <div
+                        class="bg-boss-black px-4 py-4 sm:px-6 border-b border-white/10 flex justify-between items-center">
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-widest text-boss-gold">Boss Ounce 3.0</p>
+                            <h3 class="text-lg font-serif font-bold leading-6 text-white" id="modal-title">Categorias
+                                Disponíveis</h3>
+                        </div>
+                        <button type="button" class="text-gray-400 hover:text-white transition-colors"
+                            onclick="toggleModal('championshipModal')">
+                            <i data-lucide="x" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+
+                    <!-- Body -->
+                    <div
+                        class="px-4 py-6 sm:p-6 text-white max-h-[60vh] overflow-y-auto scrollbar-thin scrollbar-thumb-boss-gold scrollbar-track-boss-black">
+                        <div class="space-y-6">
+
+                            <!-- Sobrancelhas -->
+                            <div class="relative pl-4 border-l-2 border-boss-gold/30">
+                                <h5
+                                    class="text-boss-gold font-bold uppercase text-sm tracking-wider mb-3 flex items-center gap-2">
+                                    <i data-lucide="eye" class="w-4 h-4"></i> Sobrancelhas
+                                </h5>
+                                <ul class="text-sm text-gray-300 space-y-2">
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-boss-gold mt-1.5 shrink-0"></span>Design
+                                        com Henna (ombré)</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-boss-gold mt-1.5 shrink-0"></span>Brow
+                                        Lamination</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-boss-gold mt-1.5 shrink-0"></span>Micropigmentação
+                                    </li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-boss-gold mt-1.5 shrink-0"></span>Micropigmentação
+                                        Shadow</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-boss-gold mt-1.5 shrink-0"></span>Micropigmentação
+                                        Nano Fios</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-boss-gold mt-1.5 shrink-0"></span>Micropigmentação
+                                        Labial</li>
+                                </ul>
+                            </div>
+
+                            <!-- Unhas -->
+                            <div class="relative pl-4 border-l-2 border-boss-gold/30">
+                                <h5
+                                    class="text-boss-gold font-bold uppercase text-sm tracking-wider mb-3 flex items-center gap-2">
+                                    <i data-lucide="sparkles" class="w-4 h-4"></i> Unhas
+                                </h5>
+                                <ul class="text-sm text-gray-300 space-y-2">
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-boss-gold mt-1.5 shrink-0"></span>Molde
+                                        F1</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-boss-gold mt-1.5 shrink-0"></span>Fibra
+                                        de Vidro</li>
+                                </ul>
+                            </div>
+
+                            <!-- Cílios -->
+                            <div class="relative pl-4 border-l-2 border-boss-gold/30">
+                                <h5
+                                    class="text-boss-gold font-bold uppercase text-sm tracking-wider mb-3 flex items-center gap-2">
+                                    <i data-lucide="eye" class="w-4 h-4"></i> Cílios
+                                </h5>
+                                <ul class="text-sm text-gray-300 space-y-2">
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-boss-gold mt-1.5 shrink-0"></span>Volume
+                                        Brasileiro (Y)</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-boss-gold mt-1.5 shrink-0"></span>FOX
+                                        (fio 5M, curvatura M)</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-boss-gold mt-1.5 shrink-0"></span>Volume
+                                        Russo com fans</li>
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-boss-gold mt-1.5 shrink-0"></span>Egípcio
+                                        (3D ou 4D)</li>
+                                </ul>
+                            </div>
+
+                            <!-- Cabelo -->
+                            <div class="relative pl-4 border-l-2 border-boss-gold/30">
+                                <h5
+                                    class="text-boss-gold font-bold uppercase text-sm tracking-wider mb-3 flex items-center gap-2">
+                                    <i data-lucide="scissors" class="w-4 h-4"></i> Cabelo
+                                </h5>
+                                <ul class="text-sm text-gray-300 space-y-2">
+                                    <li class="flex items-start gap-2"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-boss-gold mt-1.5 shrink-0"></span>Realinhamento
+                                        Capilar</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="bg-boss-black/50 px-4 py-4 sm:px-6 flex justify-center border-t border-white/10">
+                        <button type="button"
+                            class="inline-flex w-full justify-center rounded-sm bg-boss-gold px-8 py-3 text-xs font-bold uppercase tracking-widest text-black shadow-sm hover:bg-white transition-colors sm:w-auto"
+                            onclick="toggleModal('championshipModal')">
+                            Fechar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Modal Functionality
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            const isHidden = modal.classList.contains('hidden');
+
+            if (isHidden) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            } else {
+                modal.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                const modal = document.getElementById('championshipModal');
+                if (!modal.classList.contains('hidden')) {
+                    toggleModal('championshipModal');
+                }
+            }
+        });
+
+        // Animação de Entrada
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Navbar scroll logic
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const floatingCta = document.getElementById('floating-cta');
+
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg', 'py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('shadow-lg', 'py-2');
+                nav.classList.add('py-4');
+            }
+
+            if (window.scrollY > window.innerHeight) {
+                floatingCta.classList.remove('translate-y-full');
+            } else {
+                floatingCta.classList.add('translate-y-full');
+            }
+        });
+
+        // Simple Countdown Timer
+        const targetDate = new Date('March 08, 2026 09:00:00').getTime();
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+        }
+        setInterval(updateCountdown, 60000);
+        updateCountdown();
+
+        // --- AUTOMATED MARQUEE LOGIC ---
+        // Lists populated from user data
+
+        // Image Buckets for randomness/placeholders
+        const femaleImages = [
+            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1589156280159-27698a70f29e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+        ];
+
+        const maleImages = [
+            "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+        ];
+
+        const brandImages = [
+            "https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1664575602276-acd073f104c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+            "https://images.unsplash.com/photo-1664575602554-208c70e64584?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+        ];
+
+        // List construction
+        // NOTE: To add a specific photo, add the property: photo: "URL_DA_FOTO"
+        const rawSpeakers = [
+            // Palco
+            { name: "Bya Lucena", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/uLMYbql.png" },
+            { name: "Jaqueline Braz", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/j2b2Z1v.png" },
+            { name: "Lara Aguiar", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/Knx2T8h.png" },
+            { name: "Sara Kastanho", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/V1ehsKG.png" },
+            { name: "Raquel Medeiros", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/Eb4woM6.png" },
+            { name: "Nayara Santos", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/iNlXBij.png" },
+            { name: "Vitoria Lorena", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/3pBwvdv.png" },
+            { name: "Lays Araujo", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/CDVae0F.png" },
+            { name: "Paulo Mendes", role: "Palestrante | Palco", type: "m", photo: "https://imgur.com/ht1LhJ4.png" },
+            { name: "Júlia Pereira", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/w75NAmk.png" },
+            { name: "Larissa Sousa", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/ZcQSizY.png" },
+            { name: "Mirella Nascimento", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/glBnslE.png" },
+            { name: "Taciana Borges", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/63VO7zx.png" },
+            { name: "Flávia Elita", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/C7sBKKV.png" },
+            { name: "Gabrielle Landim", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/UXPjnWp.png" },
+            { name: "Rapha Poppet", role: "Palestrante | Palco", type: "f", photo: "https://imgur.com/Z7nDRiK.png" },
+            { name: "Matheus Carvalho", role: "Palestrante | Palco", type: "m", photo: "https://imgur.com/VxqkEBC.png" },
+
+            // Workboss (Duplicates merged or relisted as requested? Listing all as they appear guarantees visibility)
+            { name: "Maria Castro", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/b8SeLzT.png" },
+            { name: "Aline Oliveira", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/4at4Zvo.png" },
+            { name: "Emisleia Alves", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/FkDYlQy.png" },
+            { name: "Camila Andrade", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/qt5prfi.png" },
+            { name: "Angélica Brito", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/IiIaH9x.png" },
+            { name: "Aline Gomes", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/JRmPNiL.png" },
+            { name: "Heloísa Aguiar", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/sUkLMUc.png" },
+            { name: "Kauany Araújo", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/RiPmUlT.png" },
+            { name: "Taisa", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/bT9jHxI.png" },
+            { name: "Rogerio Hudson", role: "Workboss | Técnica", type: "m", photo: "https://imgur.com/ht1LhJ4.png" },
+            { name: "Dayane Matos", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/LqkIld0.png" },
+            { name: "Deborah Cristiny", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/t5xF68O.png" },
+            { name: "Ana Paula", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/UtNfewq.png" },
+            { name: "Casal Nails", role: "Workboss | Técnica", type: "b", photo: "https://imgur.com/CX3TjAK.png" },
+            { name: "Milena Vargas", role: "Workboss | Técnica", type: "f", photo: "https://imgur.com/7kbOIoS.png" },
+            { name: "Gilvan", role: "Workboss | Técnica", type: "m", photo: "https://imgur.com/FPTfCIC.png" },
+
+            // Talkshow
+            { name: "Nay Cunha", role: "Talkshow", type: "f", photo: "https://imgur.com/xi6gd7L.png" },
+            { name: "Sandra Rosa", role: "Talkshow", type: "f", photo: "https://imgur.com/Tu6etDW.png" },
+            { name: "Denice", role: "Talkshow", type: "f", photo: "https://imgur.com/8fvYzq2.png" },
+            { name: "Maria Yvelônia", role: "Talkshow", type: "f", photo: "https://imgur.com/lBshbNY.png" },
+            { name: "Naelly", role: "Talkshow", type: "f", photo: "https://imgur.com/XeLBtMG.png" },
+            { name: "Bruna", role: "Talkshow", type: "f", photo: "https://imgur.com/22XZtzQ.png" },
+            { name: "Ray Oliveira", role: "Talkshow", type: "f", photo: "https://imgur.com/ht1LhJ4.png" },
+            { name: "Pathy Lopez", role: "Talkshow", type: "f", photo: "https://imgur.com/gdLVoXM.png" },
+
+            // Stands
+            { name: "MG Cilios e Brows", role: "Expositor", type: "b", photo: "https://imgur.com/ht1LhJ4.png" },
+            { name: "Imperio Nails", role: "Expositor", type: "b", photo: "https://imgur.com/kmdOu8V.png" },
+            { name: "Danilo Tatto", role: "Expositor", type: "m", photo: "https://imgur.com/iK2dfuT.png" },
+            { name: "Gih Delicias", role: "Expositor", type: "b", photo: "https://imgur.com/j8ElehD.png" },
+            { name: "GK Moda Feminina", role: "Expositor", type: "b", photo: "https://imgur.com/xIKnYSJ.png" },
+            { name: "Escorsin Store", role: "Expositor", type: "b", photo: "https://imgur.com/ht1LhJ4.png" },
+            { name: "Lucenarte", role: "Expositor", type: "b", photo: "https://imgur.com/z5wfq0P.png" },
+
+            // Parceiros VIP
+            { name: "Beautify BR", role: "Parceiro VIP", type: "b", photo: "https://imgur.com/5qVznZo.png" },
+            { name: "Elevare", role: "Parceiro VIP", type: "b", photo: "https://imgur.com/EQru1OH.png" },
+            { name: "Menela", role: "Parceiro VIP", type: "b", photo: "https://imgur.com/ht1LhJ4.png" },
+            { name: "La Benig", role: "Parceiro VIP", type: "b", photo: "https://imgur.com/KhBd528.png" },
+            { name: "Dermink", role: "Parceiro VIP", type: "b", photo: "https://imgur.com/ht1LhJ4.png" },
+            { name: "Bylee", role: "Parceiro VIP", type: "b", photo: "https://imgur.com/isMc58g.png" }
+        ];
+
+        // Process images
+        const speakers = rawSpeakers.map(s => {
+            let img;
+
+            // 1. Check if specific photo is defined in the object
+            if (s.photo) {
+                img = s.photo;
+            }
+            // 2. If no photo, assign random based on type
+            else {
+                if (s.type === 'f') img = femaleImages[Math.floor(Math.random() * femaleImages.length)];
+                else if (s.type === 'm') img = maleImages[Math.floor(Math.random() * maleImages.length)];
+                else img = brandImages[Math.floor(Math.random() * brandImages.length)];
+            }
+
+            return { ...s, img };
+        });
+
+        // Duplicate array to ensure we have enough items for a long list
+        // and then duplicate AGAIN for the marquee loop effect
+        const baseList = [...speakers]; // Full list
+
+        // Shuffle function (Fisher-Yates)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        // Shuffle the list so it starts with different people
+        shuffleArray(baseList);
+
+        function createCard(speaker, index) {
+            return `
+                <div class="w-[280px] md:w-[320px] shrink-0 group relative bg-boss-gray border border-white/5 rounded-sm overflow-hidden hover:border-boss-gold/50 transition-colors duration-300">
+                    <div class="aspect-[4/5] overflow-hidden relative">
+                        <img src="${speaker.img}" alt="${speaker.name}" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-boss-black via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+                            <div class="w-8 h-8 bg-boss-gold text-black rounded-full flex items-center justify-center">
+                                <i data-lucide="instagram" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 relative">
+                        <h3 class="text-xl font-serif font-bold text-white mb-1 group-hover:text-boss-gold transition-colors">${speaker.name}</h3>
+                        <p class="text-gray-400 text-xs uppercase tracking-widest mb-4">${speaker.role}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        const track = document.getElementById('marqueeTrack');
+
+        // 1. Render base list
+        const cardsHTML = baseList.map((s, i) => createCard(s, i)).join('');
+
+        // 2. Inject TWICE to create the seamless infinite loop
+        // The animation moves -50%, so we need two full sets
+        track.innerHTML = cardsHTML + cardsHTML;
+
+        // Re-init icons for newly added elements
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
