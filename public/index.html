@@ -200,9 +200,31 @@
                 </a>
             </div>
             <!-- Mobile Menu Icon -->
-            <button class="md:hidden text-white">
+            <button id="mobileMenuBtn" class="md:hidden text-white focus:outline-none" onclick="toggleMobileMenu()">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobileMenu"
+            class="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 md:hidden flex items-center justify-center">
+            <button class="absolute top-6 right-6 text-white" onclick="toggleMobileMenu()">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            <div class="flex flex-col items-center gap-8 text-center">
+                <a href="#evento" onclick="toggleMobileMenu()"
+                    class="text-2xl font-serif text-white hover:text-boss-gold transition-colors">O Evento</a>
+                <a href="#palestrantes" onclick="toggleMobileMenu()"
+                    class="text-2xl font-serif text-white hover:text-boss-gold transition-colors">Palestrantes</a>
+                <a href="#dresscode" onclick="toggleMobileMenu()"
+                    class="text-2xl font-serif text-white hover:text-boss-gold transition-colors">Dress Code</a>
+                <a href="#faq" onclick="toggleMobileMenu()"
+                    class="text-2xl font-serif text-white hover:text-boss-gold transition-colors">FAQ</a>
+                <a href="#checkout" onclick="toggleMobileMenu()"
+                    class="btn-gold px-10 py-4 text-boss-black font-bold rounded-sm uppercase tracking-widest text-sm">
+                    Ingressos
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -280,10 +302,11 @@
         <!-- Scroll Down Indicator -->
         <!-- Scroll Down Indicator -->
         <div
-            class="absolute bottom-24 md:bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer z-20 w-full flex justify-center pointer-events-none">
+            class="absolute bottom-28 md:bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer z-20 w-full flex justify-center pointer-events-none">
             <a href="#evento"
-                class="pointer-events-auto flex flex-col items-center gap-2 group opacity-80 hover:opacity-100 transition-opacity duration-300">
-                <span class="text-[10px] uppercase tracking-[0.3em] text-boss-gold font-bold drop-shadow-md">Ver
+                class="pointer-events-auto flex flex-col items-center gap-2 group opacity-100 md:opacity-80 md:hover:opacity-100 transition-opacity duration-300">
+                <span
+                    class="hidden md:block text-[10px] uppercase tracking-[0.3em] text-boss-gold font-bold drop-shadow-md">Ver
                     Mais</span>
                 <div
                     class="p-2 rounded-full border border-boss-gold/30 bg-black/30 backdrop-blur-sm group-hover:bg-boss-gold/20 group-hover:border-boss-gold transition-all duration-300 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
@@ -1167,7 +1190,21 @@
         // The animation moves -50%, so we need two full sets
         track.innerHTML = cardsHTML + cardsHTML;
 
-        // Re-init icons for newly added elements
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const isClosed = menu.classList.contains('translate-x-full');
+
+            if (isClosed) {
+                menu.classList.remove('translate-x-full');
+                document.body.style.overflow = 'hidden';
+            } else {
+                menu.classList.add('translate-x-full');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Initialize Lucide Icons
         lucide.createIcons();
         // Smooth scroll to section without updating URL hash
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
