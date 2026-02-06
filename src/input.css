@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    /* Efeito de Texto Metálico Premium */
+    .text-gold-metallic {
+        background: linear-gradient(to bottom right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Bordas Douradas */
+    .border-gold-metallic {
+        border: 1px solid transparent;
+        background: linear-gradient(to right, #111, #111) padding-box,
+            linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c) border-box;
+    }
+
+    /* Botão Dourado com Efeito de Brilho */
+    .btn-gold {
+        background: linear-gradient(90deg, #aa771c 0%, #D4AF37 50%, #aa771c 100%);
+        background-size: 200% auto;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-gold:hover {
+        background-position: right center;
+        transform: translateY(-2px);
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    }
+
+    /* Efeito de Vidro */
+    .glass-panel {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Fade In Animation */
+    .fade-in-section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 1s cubic-bezier(0.5, 0, 0, 1), transform 1s cubic-bezier(0.5, 0, 0, 1);
+        will-change: opacity, transform;
+    }
+
+    .fade-in-section.is-visible {
+        opacity: 1;
+        transform: none;
+    }
+
+    /* Accordion Styles */
+    details>summary {
+        list-style: none;
+    }
+
+    details>summary::-webkit-details-marker {
+        display: none;
+    }
+
+    /* Pause Animation on Hover */
+    .hover-pause:hover {
+        animation-play-state: paused;
+    }
+
+    .text-shadow-lg {
+        text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    }
+}
